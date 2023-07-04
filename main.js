@@ -8,15 +8,21 @@ const passwords = ["jedEN", "DwA"];
 const messages = ["super", "działa!"];
 
 const div = document.querySelector("div");
+
+passwords.forEach((password, i) => {
+  passwords[i] = password.toLowerCase;
+}); //zamiana liter w tablicy na małe, przy użyciu forEach - jest to jeden ze sposobów - drugi łatwiejszy .map
+
 const showMessage = (e) => {
-  div.textContent = "";
+  //   div.textContent = "";
   //tutaj rozwiązanie
   // PS. nie skupiaj się na niczym innym w zadaniu niż porównanie i wyświetlenie
   //   ( nie rób czyszczenia inputa itp. nie są potrzebne, chyba że masz ochotę)
+  const input = e.target.value.toLowerCase();
   passwords.forEach((password, i) => {
-    if (password.toLowerCase() === e.target.value.toLowerCase()) {
+    if (password === input) {
       div.textContent = messages[i];
-      e.target.value = "";
+      //   e.target.value = "";
     }
   });
 };
