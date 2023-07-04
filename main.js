@@ -14,7 +14,7 @@ const showMessage = (e) => {
   // PS. nie skupiaj się na niczym innym w zadaniu niż porównanie i wyświetlenie
   //   ( nie rób czyszczenia inputa itp. nie są potrzebne, chyba że masz ochotę)
   passwords.forEach((password, i) => {
-    if (password.toLowerCase() === e.target.value) {
+    if (password.toLowerCase() === e.target.value.toLowerCase()) {
       div.textContent = messages[i];
       e.target.value = "";
     }
