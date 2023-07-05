@@ -9,22 +9,35 @@ const messages = ["super", "działa!"];
 
 const div = document.querySelector("div");
 
-passwords.forEach((password, i) => {
-  passwords[i] = password.toLowerCase;
-}); //zamiana liter w tablicy na małe, przy użyciu forEach - jest to jeden ze sposobów - drugi łatwiejszy .map
+const LCP = passwords.map((password) => password.toLowerCase());
+
+// passwords.forEach((password, i) => {
+//   passwords[i] = password.toLowerCase;
+// }); //zamiana liter w tablicy na małe, przy użyciu forEach - jest to jeden ze sposobów - drugi łatwiejszy .map
 
 const showMessage = (e) => {
   //   div.textContent = "";
+
   //tutaj rozwiązanie
   // PS. nie skupiaj się na niczym innym w zadaniu niż porównanie i wyświetlenie
   //   ( nie rób czyszczenia inputa itp. nie są potrzebne, chyba że masz ochotę)
-  const input = e.target.value.toLowerCase();
-  passwords.forEach((password, i) => {
-    if (password === input) {
-      div.textContent = messages[i];
-      //   e.target.value = "";
+  //   const input = e.target.value.toLowerCase();
+  //   passwords.forEach((password, i) => {
+  //     if (password === input) {
+  //       div.textContent = messages[i];
+  //       //   e.target.value = "";
+  //     }
+  //   });
+
+  //.map method
+  const textInput = e.target.value.toLowerCase();
+
+  for (i = 0; i < LCP.length; i++) {
+    console.log(e);
+    if (textInput === LCP[i]) {
+      div.innerHTML = messages[i];
     }
-  });
+  }
 };
 
 input.addEventListener("input", showMessage);
